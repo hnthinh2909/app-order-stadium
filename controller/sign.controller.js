@@ -109,7 +109,7 @@ module.exports.indexForgetPost = async (req, res) => {
 		  from: 'app-order-stadium@gmail.com',
 		  to: user.email,
 		  subject: 'Reset Password',
-		  text: 'Click this link to reset password: http://localhost:8080/auth/resetpassword/' + user.id,
+		  text: 'Click this link to reset password: https://app-order-stadium.herokuapp.com/auth/resetpassword/' + user.id,
 		};
 		transporter.sendMail(mailOptions, function(error, info){
 			if (error) {
