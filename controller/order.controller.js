@@ -79,7 +79,8 @@ module.exports.orderPost = async (req, res) => {
 		  from: 'app-order-stadium@gmail.com',
 		  to: transaction.email,
 		  subject: 'Submit Order',
-		  text: 'Copy this captcha to submit your order : <b>' + transaction.idSubmit + '</b>',
+		  text: 'This is email is auto, don\'t reply!',
+		  html: '<p>Copy this captcha to submit your order :<b>' + transaction.idSubmit+ '</b><p>'
 		};
 		await transporter.sendMail(mailOptions, function(error, info){
 			if (error) {
