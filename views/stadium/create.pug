@@ -1,0 +1,24 @@
+extends ../layouts/common
+
+block content
+    form(action="/stadium/create" method="post" style="margin: 50px 200px")
+        .form-group
+            label(for='exampleInputName') Name
+            input#exampleInputName.form-control(type='text' name="name")
+        .form-group
+            label(for='exampleInputAdress') Adress
+            input#exampleInputAdress.form-control(type='text' name="address")
+        fieldset.form-group
+            .row
+                legend.col-form-label.col-sm-2.pt-0 Range Of Stadium
+                .col-sm-10
+                    .form-check.custom-control.custom-radio
+                        input#customRadio1.custom-control-input(type='radio', name='rangePeople' value="5 persions")
+                        label.custom-control-label(for='customRadio1') 5 persions/ stadium
+                    .form-check.custom-control.custom-radio
+                        input#customRadio2.custom-control-input(type='radio', name='rangePeople' value="7 persions")
+                        label.custom-control-label(for='customRadio2') 7 persions/ stadium
+                    .form-check.custom-control.custom-radio
+                        input#customRadio3.custom-control-input(type='radio', name='rangePeople' value="11 persions")
+                        label.custom-control-label(for='customRadio3') 11 persions/ stadium
+        button.btn.btn-primary(type='submit') Create

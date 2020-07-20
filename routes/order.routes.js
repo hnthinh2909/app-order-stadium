@@ -18,4 +18,8 @@ router.get("/order/submit", OrderController.submit);
 router.post("/order/submit", OrderController.submitPost);
 // router order - not login
 
+router.get("/create", OrderController.create);
+
+router.post("/create", OrderController.createPost);
+
 module.exports = router;

@@ -5,13 +5,16 @@ let countTypeCaptcha = 1;
 
 const shortid = require('shortid');
 const Transaction = require("../models/transaction.models.js");
+const Stadium = require("../models/stadium.model.js");
 const mongoose = require("mongoose");
 
 const nodemailer = require('nodemailer');
 
-module.exports.index = (req, res) => {
-
-	res.render("stadium/index");
+module.exports.index = async (req, res) => {
+	let stadiums = await Stadium.find({});
+	res.render("stadium/index", {
+		stadiums
+	});
 }
 
 module.exports.order = (req, res) => {
@@ -129,4 +132,20 @@ module.exports.submitPost = async (req, res) => {
 		}
 	}
 	res.redirect("/stadium");
+}
+
+module.exports.create = (req, res) => {
+	res.render("stadium/create");
+}
+
+module.exports.createPost = (req, res) => {
+	var stadium = new Stadium({
+	    _id:  mongoose.Types.ObjectId(), // String is shorthand for {type: String}
+	    name: req.body.name,
+	    rangePeople: req.body.rangePeople,
+	    address: req.body.address,   
+  	});
+  	console.log(stadium);
+  	stadium.save();
+  	res.redirect("/stadium");
 }
