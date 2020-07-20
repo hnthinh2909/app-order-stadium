@@ -1,0 +1,13 @@
+extends ../layouts/common
+ 
+block content
+    
+    form(action="/transaction/edit" method="post" style="margin: 50px 200px")
+        input(type="hidden" name="id" value=transaction.id)
+        .form-group.row
+            label.col-sm-2.col-form-label(for='inputEmail3') Complete
+            .custom-control.custom-checkbox
+                .col-sm-10
+                    input#customCheckDisabled1.custom-control-input(type='checkbox' value="true" name="isComplete")
+                    label.custom-control-label(for='customCheckDisabled1') Done
+        button.btn.btn-primary(type='submit') Submit form

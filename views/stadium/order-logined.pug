@@ -1,0 +1,117 @@
+extends ../layouts/common
+
+block content
+    h1(style="display: flex; justify-content: center; margin-top: 40px") Order Stadium
+    form(action="/stadium/order/" method="post" style="margin: 50px 200px")
+        fieldset.form-group
+            .row
+                legend.col-form-label.col-sm-2.pt-0 Range Of Stadium
+                .col-sm-10
+                    .form-check.custom-control.custom-radio
+                        input#customRadio1.custom-control-input(type='radio', name='rangePeople' value="5 persions")
+                        label.custom-control-label(for='customRadio1') 5 persions/ stadium
+                    .form-check.custom-control.custom-radio
+                        input#customRadio2.custom-control-input(type='radio', name='rangePeople' value="7 persions")
+                        label.custom-control-label(for='customRadio2') 7 persions/ stadium
+                    .form-check.custom-control.custom-radio
+                        input#customRadio3.custom-control-input(type='radio', name='rangePeople' value="11 persions")
+                        label.custom-control-label(for='customRadio3') 11 persions/ stadium
+        .form-group.row
+            label.col-sm-2.col-form-label(for='inputEmail3') Time
+            .col-auto.my-1
+                label.mr-sm-2.sr-only(for='inlineFormCustomSelect') From
+                select#inlineFormCustomSelect.custom-select.mr-sm-2(name="from")
+                    option(selected='') From...
+                    option(value='06:00') 06:00
+                    option(value='07:00') 07:00
+                    option(value='08:00') 08:00
+                    option(value='09:00') 09:00
+                    option(value='10:00') 10:00
+                    option(value='11:00') 11:00
+                    option(value='12:00') 12:00
+                    option(value='13:00') 13:00
+                    option(value='14:00') 14:00
+                    option(value='15:00') 15:00
+                    option(value='16:00') 16:00
+                    option(value='17:00') 17:00
+                    option(value='18:00') 18:00
+                    option(value='19:00') 19:00
+                    option(value='20:00') 20:00
+                    option(value='21:00') 21:00
+            .col-auto.my-1
+                label.mr-sm-2.sr-only(for='inlineFormCustomSelect') To
+                select#inlineFormCustomSelect.custom-select.mr-sm-2(name="to")
+                    option(selected='') To...
+                    option(value='07:00') 07:00
+                    option(value='08:00') 08:00
+                    option(value='09:00') 09:00
+                    option(value='10:00') 10:00
+                    option(value='11:00') 11:00
+                    option(value='12:00') 12:00
+                    option(value='13:00') 13:00
+                    option(value='14:00') 14:00
+                    option(value='15:00') 15:00
+                    option(value='16:00') 16:00
+                    option(value='17:00') 17:00
+                    option(value='18:00') 18:00
+                    option(value='19:00') 19:00
+                    option(value='20:00') 20:00
+                    option(value='21:00') 21:00
+        .form-group.row
+            label.col-sm-2.col-form-label(for='inputEmail3') Date
+            .col-auto.my-1
+                label.mr-sm-2.sr-only(for='dayChoose') Date
+                select#dayChoose.custom-select.mr-sm-2(name="day")
+                    option(selected='') Day
+                    option(value='01') 01
+                    option(value='02') 02
+                    option(value='03') 03
+                    option(value='04') 04
+                    option(value='05') 05
+                    option(value='06') 06
+                    option(value='07') 07
+                    option(value='08') 08
+                    option(value='09') 09
+                    option(value='10') 10
+                    option(value='11') 11
+                    option(value='12') 12
+                    option(value='13') 13
+                    option(value='14') 14
+                    option(value='15') 15
+                    option(value='16') 16
+                    option(value='17') 17
+                    option(value='18') 18
+                    option(value='19') 19
+                    option(value='20') 20
+                    option(value='21') 21
+                    option(value='22') 22
+                    option(value='23') 23
+                    option(value='24') 24
+                    option(value='25') 25
+                    option(value='26') 26
+                    option(value='27') 27
+                    option(value='28') 28
+                    option(value='29') 29
+                    option(value='30') 30
+                    option(value='31') 31
+            .col-auto.my-1
+                label.mr-sm-2.sr-only(for='monthChoose') Date
+                select#monthChoose.custom-select.mr-sm-2(name="month")
+                    option(selected='') Month
+                    option(value='01') 01
+                    option(value='02') 02
+                    option(value='03') 03
+                    option(value='04') 04
+                    option(value='05') 05
+                    option(value='06') 06
+                    option(value='07') 07
+                    option(value='08') 08
+                    option(value='09') 09
+                    option(value='10') 10
+                    option(value='11') 11
+                    option(value='12') 12
+        .form-group.row
+            .col-sm-10
+                button.btn.btn-primary(type='submit') Confirm
+
+            

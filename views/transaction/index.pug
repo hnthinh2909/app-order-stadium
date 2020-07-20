@@ -1,0 +1,33 @@
+extends ../layouts/common
+
+block content
+    div(style="width: 100vw; padding: 50px 200px")
+        table.table(style="text-align: center")
+            thead.thead-light
+                tr
+                    th(scope='col') Name 
+                    th(scope='col') Phone Number
+                    th(scope='col') Stadium Range
+                    th(scope='col') Date(day/month)
+                    th(scope='col') From
+                    th(scope='col') To
+                    th(scope='col') Complete
+                    th(scope='col') Action
+
+            tbody
+                each transaction in transactions    
+                    tr
+                        td= transaction.name
+                        td= transaction.phone
+                        td= transaction.rangePeople
+                        td= transaction.date.day + ' / ' + transaction.date.month
+                        td= transaction.time.from
+                        td= transaction.time.from
+                        if(transaction.isComplete)
+                            td Done
+                        if(!transaction.isComplete)
+                            td Not yet
+                        td
+                            a(href="/transaction/edit/" + transaction._id style="margin: 5px") Edit
+                            
+                            a(href="/transaction/delete/" + transaction._id style="margin: 5px") Delete

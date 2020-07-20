@@ -1,0 +1,14 @@
+extends ../layouts/common
+
+block content
+    div(style="margin: 50px 200px")
+        h2(style="margin-bottom: 30px") Submit Order
+        form(action="/stadium/order/submit" method="post" )
+            input(type="hidden" name="id" value=transaction._id)
+            .form-group
+                label(for='exampleInputPassword1') Captcha
+                input#exampleInputPassword1.form-control(type='text' name="captcha")
+            button(style="margin-right: 10px").btn.btn-primary(type='submit') Submit
+            
+            if(error) 
+                .alert.alert-danger(style="margin-top: 15px")= error

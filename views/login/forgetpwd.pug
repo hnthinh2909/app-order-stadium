@@ -1,0 +1,16 @@
+extends ../layouts/common
+
+block content
+    form(action="/auth/resetpassword/" method="post" style="margin: 50px 200px")
+        input(type="hidden" name="id" value=id)
+        .form-group
+            label(for='exampleInputPassword1') New Password
+            input#exampleInputPassword1.form-control(type='password' name="password")
+        .form-group
+            label(for='exampleInputPassword1') Confirm Password
+            input#exampleInputPassword1.form-control(type='password' name="confirmpassword")
+        button.btn.btn-primary(type='submit') Reset
+
+        if(error)
+            .alert.alert-danger(style="margin-top: 25px")= error
+    

@@ -1,0 +1,18 @@
+extends ../layouts/common
+
+block content
+    form(action="/user/profile/edit" method="post" style="margin: 50px 200px")
+        .form-group
+            label(for='exampleInputName') Name
+            input#exampleInputName.form-control(type='text' name="name" placeholder=user.name)
+        .form-group
+            label(for='exampleInputEmail1') Email address
+            input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp' name="email" placeholder=user.email)
+            small#emailHelp.form-text.text-mute
+        .form-group
+            label(for='exampleInputAdress') Adress
+            input#exampleInputAdress.form-control(type='text' name="adress" placeholder=user.address)
+        .form-group
+            label(for='exampleInputPhone') Phone Number
+            input#exampleInputPhone.form-control(type='text' name="phone" placeholder=user.phone)
+        button.btn.btn-primary(type='submit') Confirm

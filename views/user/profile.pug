@@ -1,0 +1,18 @@
+extends ../layouts/common
+
+block content
+    div(style="width: 100vw; display:flex; justify-content: center; margin-top: 200px")
+        .media(style="width: 50vw")
+            div(style="width: 50%")
+                img.align-self-center.mr-3(src='https://loremflickr.com/240/240', alt='...' style="border-radius: 50%")
+            .media-body
+                h5.mt-0 Name: 
+                    b= user.name
+                p Phone: 
+                    b= user.phone
+                p Email: 
+                    b= user.email
+                p Address: 
+                    b= user.address
+                a.btn.btn-primary(href="/user/profile/edit/" + user.id style="margin-right: 10px") Edit
+                a.btn.btn-primary(href="/auth/resetpassword/" + user.id) Change Password

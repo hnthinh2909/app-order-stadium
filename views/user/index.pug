@@ -1,0 +1,25 @@
+extends ../layouts/common
+
+block content
+    div(style="width: 100vw; padding: 50px 200px")
+        table.table
+            thead.thead-light
+                tr
+                    th(scope='col') Name
+                    th(scope='col') Phone
+                    th(scope='col') Email
+                    th(scope='col') Adress
+                    th(scope='col') Position
+
+            tbody
+                tr
+                    each user in users
+                        td(scope='row')= user.name
+                        td= user.phone
+                        td= user.email
+                        td= user.address
+                        if(user.isAdmin)
+                            td= "Admin"
+                        else 
+                            td= "Member"
+                            

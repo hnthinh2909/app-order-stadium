@@ -1,0 +1,9 @@
+extends ../layouts/common
+
+block content
+    form(action="/auth/forgetpassword/" method="post" style="margin: 50px 200px")
+        .form-group
+            label(for='exampleInputEmail1') Email address
+            input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp' name="email")
+            small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
+        button.btn.btn-primary(type='submit') Confirm

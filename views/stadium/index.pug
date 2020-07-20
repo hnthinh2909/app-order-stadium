@@ -1,0 +1,22 @@
+extends ../layouts/common
+
+block content
+    if(alert)
+        .alert.alert-primary(style="margin-bottom: 25px 200px")= alert
+
+    div(style="width: 100vw; display: flex; justify-content: center; margin-top: 100px")
+        #carouselExampleFade.carousel.slide.carousel-fade(data-ride='carousel')(style="width: 70vw; height: 70vh")
+            .carousel-inner
+                .carousel-item.active
+                    img.d-block.w-100(src='https://lh3.googleusercontent.com/ntWokgNAauvM9iPQMG4IMeWf_7hvbLTcTHZ4uoZRh41fbZCPmF1DNqWZuECnizOcHYFOyhpebmEJng2M=w1080-h608-p-no-v0', alt='5vs5')
+                .carousel-item
+                    img.d-block.w-100(src='https://santamonicaadultsports.com/Assets/973/3%20soccer%20fields%20-%20soccer%20page%201.jpg', alt='7vs7')
+                .carousel-item
+                    img.d-block.w-100(src='https://img.fifa.com/image/upload/t_l1/jbojldmkv4fsnxsi9snc.jpg', alt='11vs11')
+            a.carousel-control-prev(href='#carouselExampleFade', role='button', data-slide='prev')
+                span.carousel-control-prev-icon(aria-hidden='true')
+                span.sr-only Previous
+            a.carousel-control-next(href='#carouselExampleFade', role='button', data-slide='next')
+                span.carousel-control-next-icon(aria-hidden='true')
+                span.sr-only Next
+
