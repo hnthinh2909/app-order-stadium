@@ -4,6 +4,7 @@ block content
     if(alert) 
         .alert.alert-danger(style="margin-bottom: 25px")= alert
     form(action="/stadium/order" method="post" style="margin: 50px 200px")
+        input(type="hidden" name="id" value=idStadium)
         .form-group.row
             label.col-sm-2.col-form-label(for='name') Name
             .col-sm-10

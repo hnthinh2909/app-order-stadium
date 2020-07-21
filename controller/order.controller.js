@@ -19,20 +19,28 @@ module.exports.index = async (req, res) => {
 
 module.exports.order = (req, res) => {
 	const user  = res.locals.user;
+	const idStadium =req.params.id;
 	if(!user) {
-		return res.render("stadium/order");
+		return res.render("stadium/order", {
+			idStadium
+		});
 	}
-	res.render("stadium/order-logined");
+	res.render("stadium/order-logined", {
+		idStadium
+	});
 }
 
 module.exports.orderPost = async (req, res) => {
-
+	console.log(req.body.id);
+	let stadium = await Stadium.findOne({_id: req.body.id});
 	const user  = res.locals.user;
 	if(user) {
 		const transaction = new Transaction({
 			_id:  mongoose.Types.ObjectId(), // String is shorthand for {type: String}
 		    name: user.name,
 		    phone:   user.phone,
+		    stadiumName: stadium.name,
+		    stadiumAddress: stadium.address,
 		    isComplete: false,
 		    rangePeople: req.body.rangePeople,
 		    time: {
@@ -44,6 +52,7 @@ module.exports.orderPost = async (req, res) => {
 		      month: req.body.month
 		    }
 		})
+		console.log(transaction);
 		transaction.save();
 		return res.redirect("/stadium")
 	} 
@@ -53,6 +62,8 @@ module.exports.orderPost = async (req, res) => {
 			_id:  mongoose.Types.ObjectId(), // String is shorthand for {type: String}
 		    name: req.body.name,
 		    phone:   req.body.phone,
+		    stadiumName: stadium.name,
+		    stadiumAddress: stadium.address,
 		    email:   req.body.email,
 		    isComplete: false,
 		    rangePeople: req.body.rangePeople,
@@ -139,13 +150,20 @@ module.exports.create = (req, res) => {
 }
 
 module.exports.createPost = (req, res) => {
-	var stadium = new Stadium({
+  	
+ 	let q = (req.body.map).toLowerCase();
+ 	let valueq = q.split(" ").join("%20");
+ 	let map = valueq.concat(req.body.city)
+
+ 	var stadium = new Stadium({
 	    _id:  mongoose.Types.ObjectId(), // String is shorthand for {type: String}
 	    name: req.body.name,
 	    rangePeople: req.body.rangePeople,
-	    address: req.body.address,   
+	    address: req.body.address,
+	    qSearch: map 
   	});
-  	console.log(stadium);
+
+ 	console.log(stadium);
   	stadium.save();
   	res.redirect("/stadium");
 }

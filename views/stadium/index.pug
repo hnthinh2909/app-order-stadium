@@ -11,8 +11,8 @@ block content
                         h5.card-title= "Name : " + stadium.name
                         p.card-text= "Address : " + stadium.address
                         //- Button trigger modal
-                        a.btn.btn-primary(href="/stadium/order" style="margin-right: 15px") Order
-                        button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal')
+                        a.btn.btn-primary(href="/stadium/order/"+stadium.id) Order
+                        button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal' style="margin-left: 15px")
                             | Check map
                         //- Modal
                         #exampleModal.modal.fade( tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true' style="margin-top: 100px; width: 100%")
@@ -25,7 +25,7 @@ block content
                                     .modal-body
                                         .mapouter
                                             .gmap_canvas
-                                                iframe#gmap_canvas(src='https://maps.google.com/maps?q=hue%20viet%20nam&t=&z=13&ie=UTF8&iwloc=&output=embed', frameborder='0', scrolling='no', marginheight='0', marginwidth='0')
+                                                iframe#gmap_canvas(src='https://maps.google.com/maps?q='+ stadium.qSearch +'&t=&z=13&ie=UTF8&iwloc=&output=embed', frameborder='0', scrolling='no', marginheight='0', marginwidth='0')
                                     .modal-footer
                                         button.btn.btn-primary(type='button', data-dismiss='modal') Close
 

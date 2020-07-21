@@ -5,9 +5,11 @@ block content
         table.table(style="text-align: center")
             thead.thead-light
                 tr
-                    th(scope='col') Name 
+                    th(scope='col') Name Renter
                     th(scope='col') Phone Number
-                    th(scope='col') Stadium Range
+                    th(scope='col') Name Stadium
+                    th(scope='col') Address Stadium
+                    th(scope='col') Range Stadium
                     th(scope='col') Date(day/month)
                     th(scope='col') From
                     th(scope='col') To
@@ -19,12 +21,14 @@ block content
                     tr
                         td= transaction.name
                         td= transaction.phone
+                        td= transaction.stadiumName
+                        td= transaction.stadiumAddress
                         td= transaction.rangePeople
                         td= transaction.date.day + ' / ' + transaction.date.month
                         td= transaction.time.from
                         td= transaction.time.from
                         if(transaction.isComplete)
-                            td Done
+                            td(style="color: #ff6600; font-weight: 700;") Done
                         if(!transaction.isComplete)
                             td Not yet
                         td

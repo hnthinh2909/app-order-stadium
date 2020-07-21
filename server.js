@@ -6,6 +6,7 @@ const app = express();
 const pug = require('pug');
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
+const serveStatic = require("serve-static");
 
 const Transaction = require("./models/transaction.models.js");
 
@@ -15,8 +16,8 @@ const moment = require("moment-timezone");
 
 const requireLogin = require("./middleware/auth.login.middleware.js");
 
+app.use(express.static('public'));
 
- 
 const mongoose = require("mongoose");
 mongoose.connect('mongodb+srv://'+ process.env.MONGO_USER+ ':'+ process.env.MONGO_PASSWORD +'@cluster0-03npr.mongodb.net/stadium?retryWrites=true&w=majority', 
 	{useNewUrlParser: true, useUnifiedTopology: true});

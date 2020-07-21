@@ -4,7 +4,6 @@ const Transaction = require("../models/transaction.models.js");
 
 module.exports.index = async (req, res) => {
 	const transaction = await Transaction.find({});
-	console.log(transaction);
 	res.render("transaction/index", {
 		transactions: transaction
 	});

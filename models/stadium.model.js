@@ -5,7 +5,8 @@ var stadiumSchema = new Schema({
     _id:  mongoose.Types.ObjectId, // String is shorthand for {type: String}
     name: String,
     rangePeople:   String,
-    address: String,   
+    address: String, 
+    qSearch: String,  
   });
 
 module.exports = mongoose.model("stadiums", stadiumSchema);

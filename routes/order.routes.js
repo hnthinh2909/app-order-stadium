@@ -8,7 +8,7 @@ router.get("/", OrderController.index);
 
 // router order - logined
 
-router.get("/order", OrderController.order);
+router.get("/order/:id", OrderController.order);
 
 
 router.post("/order", OrderController.orderPost);

@@ -1,6 +1,8 @@
 extends ../layouts/common
 
 block content
+    
+
     form(action="/stadium/create" method="post" style="margin: 50px 200px")
         .form-group
             label(for='exampleInputName') Name
@@ -21,4 +23,19 @@ block content
                     .form-check.custom-control.custom-radio
                         input#customRadio3.custom-control-input(type='radio', name='rangePeople' value="11 persions")
                         label.custom-control-label(for='customRadio3') 11 persions/ stadium
+        .form-group
+            input#exampleInputName.form-control(type='text' name="map" placeholder="Please type true name of Stadium") 
+            label.col-sm-2.col-form-label(for='inputEmail3') City
+            select#inlineFormCustomSelect.custom-select.mr-sm-2(name="city")
+                option(selected='' value="%20hue%20viet%20nam") Thừa Thiên Huế
+                option(value='%20da%20nang%20viet%20nam') Hà Nội
+                option(value='%20ha%20noi%20viet%20nam') Đà Nẵng
+                option(value='%20ho%20chi%20minh%20viet%20nam') Tp. Hồ Chí Minh
+                option(disabled) We will update early...
+
+  
+        .form-group
+            .mapouter
+                .gmap_canvas
+                    iframe#gmap_canvas(src='https://maps.google.com/maps?q=san%20bong%20da%20khoa%20giao%20duc%20the%20chat%20dai%20hoc%20hue%20hue%20viet%20nam&t=&z=13&ie=UTF8&iwloc=&output=embed', frameborder='0', scrolling='no', marginheight='0', marginwidth='0' name="map")
         button.btn.btn-primary(type='submit') Create

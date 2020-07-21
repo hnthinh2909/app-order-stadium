@@ -4,6 +4,8 @@ var Schema = mongoose.Schema;
 var transactionSchema = new Schema({
     _id:  mongoose.Types.ObjectId, // String is shorthand for {type: String}
     name: String,
+    stadiumName: String,
+    stadiumAddress: String,
     phone:   Number,
     email: String,
     isComplete: Boolean,
