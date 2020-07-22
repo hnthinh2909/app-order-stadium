@@ -46,7 +46,7 @@ module.exports.signUpPost = (req, res) => {
 	    name: req.body.name,
 	    phone:   req.body.phone,
 	    password: hash,
-	    isAdmin: true,
+	    isAdmin: false,
 	    email: req.body.email,
 	    address: req.body.adress
 	});
