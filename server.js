@@ -26,7 +26,7 @@ app.use(CatchingErr.errorHandler);
 
 // +srv
 const mongoose = require("mongoose");
-mongoose.connect('mongodb+srv://'+ process.env.MONGO_USER+ ':'+ process.env.MONGO_PASSWORD +'@cluster0-03npr.mongodb.net/stadium?retryWrites=true&w=majority', 
+mongoose.connect('mongodb+srv://'+ process.env.MONGO_USER+ ':'+ process.env.MONGO_PASSWORD +'@cluster0-03npr.mongodb.net/stadium?ssl=true&authSource=admin&retryWrites=true', 
 	{useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
