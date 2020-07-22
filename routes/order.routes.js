@@ -6,6 +6,7 @@ const OrderController = require("../controller/order.controller.js");
 
 router.get("/", OrderController.index);
 
+router.get("/:page", OrderController.index);
 // router order - logined
 
 router.get("/order/:id", OrderController.order);

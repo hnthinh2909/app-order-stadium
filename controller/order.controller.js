@@ -11,9 +11,23 @@ const mongoose = require("mongoose");
 const nodemailer = require('nodemailer');
 
 module.exports.index = async (req, res) => {
-	let stadiums = await Stadium.find({}).catch(err => { console.log("Error", err)});
+	let perPage = 10;
+    let page = parseInt(req.query.page) || 1;
+
+	let stadiums = await Stadium.find({}).skip((perPage * page) - perPage).limit(perPage);
+	let countOfStadium = await Stadium.countDocuments();
+
+	let pageOfPagination = Math.ceil( countOfStadium / perPage);
+	let pages = [];
+
+	for(let i = 1; i <= pageOfPagination; i++) {
+		pages.push(i);
+	}
+	
 	res.render("stadium/index", {
-		stadiums
+		stadiums,
+		pages,
+		countOfStadium
 	});
 }
 

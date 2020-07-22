@@ -29,8 +29,22 @@ block content
                                     .modal-footer
                                         button.btn.btn-primary(type='button', data-dismiss='modal') Close
 
-        
-        
+        div(style="width: 100%; display: flex; justify-content: center")
+            if(countOfStadium > 1)
+                nav(aria-label='Page navigation example')
+                    ul.pagination
+                        li.page-item
+                            a.page-link(href='/stadium/' + (page - 1), aria-label='Previous')
+                                span(aria-hidden='true') &laquo;
+                                span.sr-only Previous
+                        each page in pages
+                            li.page-item
+                                a.page-link(href='/stadium/'+ page) 1
+                        li.page-item
+                            a.page-link(href='/stadium/' + (page + 1), aria-label='Next')
+                                span(aria-hidden='true') &raquo;
+                                span.sr-only Next  
+
             
                
 
