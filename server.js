@@ -24,17 +24,25 @@ app.use(CatchingErr.logErrors);
 app.use(CatchingErr.clientErrorHandler);
 app.use(CatchingErr.errorHandler);
 
-
+// +srv
 const mongoose = require("mongoose");
 mongoose.connect('mongodb+srv://'+ process.env.MONGO_USER+ ':'+ process.env.MONGO_PASSWORD +'@cluster0-03npr.mongodb.net/stadium?retryWrites=true&w=majority', 
 	{useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-  console.log("Connected!");
+
+db.then( () => {
+	console.log("Connected");
 });
+db.catch((err) => {
+	console.log("Reject!", err);
+})
+
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//   // we're connected!
+//   console.log("Connected!");
+// });
 
 
 cron.schedule('*/59 * * * *', async () => {
