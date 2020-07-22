@@ -12,7 +12,6 @@ module.exports.index =  async (req, res) => {
 module.exports.profile = async (req, res) => {
 	let id = req.signedCookies.userId;
 	let user = await User.findOne({_id: id});
-	console.log(user);
 	res.render("user/profile", {
 		user: user
 	})
