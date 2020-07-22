@@ -6,11 +6,13 @@ let countTypeCaptcha = 1;
 const shortid = require('shortid');
 const Transaction = require("../models/transaction.models.js");
 const Stadium = require("../models/stadium.model.js");
+const User = require("../models/user.models.js");
 const mongoose = require("mongoose");
 
 const nodemailer = require('nodemailer');
 
 module.exports.index = async (req, res) => {
+	let user = await User.findOne({_id: req.signedCookies.userId});
 	let perPage = 10;
     let page = parseInt(req.query.page) || 1;
 
@@ -19,7 +21,7 @@ module.exports.index = async (req, res) => {
 
 	let pageOfPagination = Math.ceil( countOfStadium / perPage);
 	let pages = [];
-
+	console.log(user);
 	for(let i = 1; i <= pageOfPagination; i++) {
 		pages.push(i);
 	}
@@ -27,8 +29,14 @@ module.exports.index = async (req, res) => {
 	res.render("stadium/index", {
 		stadiums,
 		pages,
-		countOfStadium
+		countOfStadium,
+		user
 	});
+}
+
+module.exports.delete = async (req, res) => {
+	await Stadium.deleteOne({_id: req.params.id});
+	res.redirect("back");
 }
 
 module.exports.order = (req, res) => {
@@ -159,25 +167,3 @@ module.exports.submitPost = async (req, res) => {
 	res.redirect("/stadium");
 }
 
-module.exports.create = (req, res) => {
-	res.render("stadium/create");
-}
-
-module.exports.createPost = (req, res) => {
-  	
- 	let q = (req.body.map).toLowerCase();
- 	let valueq = q.split(" ").join("%20");
- 	let map = valueq.concat(req.body.city)
-
- 	var stadium = new Stadium({
-	    _id:  mongoose.Types.ObjectId(), // String is shorthand for {type: String}
-	    name: req.body.name,
-	    rangePeople: req.body.rangePeople,
-	    address: req.body.address,
-	    qSearch: map 
-  	});
-
- 	console.log(stadium);
-  	stadium.save();
-  	res.redirect("/stadium");
-}

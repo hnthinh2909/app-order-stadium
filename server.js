@@ -108,6 +108,7 @@ const SignRoute = require("./routes/auth.login.routes.js");
 const TransactionRoute = require("./routes/transactions.routes.js");
 const UserRoute = require("./routes/user.routes.js");
 const OrderRoute = require("./routes/order.routes.js");
+const StadiumRoute = require("./routes/stadium.routes.js");
 
 app.set('view engine', 'pug');
 app.set("views", "./views");
@@ -120,6 +121,7 @@ app.use("/auth/", SignRoute);
 app.use("/transaction/", TransactionRoute);
 app.use("/user/", UserRoute);
 app.use("/stadium/", OrderRoute);
+app.use("/create/", StadiumRoute);
 
 const PORT = process.env.PORT || 3000;
 

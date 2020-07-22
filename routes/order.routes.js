@@ -11,16 +11,14 @@ router.get("/:page", OrderController.index);
 
 router.get("/order/:id", OrderController.order);
 
-
 router.post("/order", OrderController.orderPost);
+
+router.get("/delete/:id", OrderController.delete);
 
 router.get("/order/submit", OrderController.submit);
 
 router.post("/order/submit", OrderController.submitPost);
 // router order - not login
 
-router.get("/create", OrderController.create);
-
-router.post("/create", OrderController.createPost);
 
 module.exports = router;

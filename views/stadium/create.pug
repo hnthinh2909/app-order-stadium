@@ -3,9 +3,9 @@ extends ../layouts/common
 block content
     
 
-    form(action="/stadium/create" method="post" style="margin: 50px 200px")
+    form(action="/create" method="post" style="margin: 50px 200px")
         .form-group
-            label(for='exampleInputName') Name
+            label(for='exampleInputName') Name Stadium
             input#exampleInputName.form-control(type='text' name="name")
         .form-group
             label(for='exampleInputAdress') Adress
@@ -24,7 +24,7 @@ block content
                         input#customRadio3.custom-control-input(type='radio', name='rangePeople' value="11 persions")
                         label.custom-control-label(for='customRadio3') 11 persions/ stadium
         .form-group
-            input#exampleInputName.form-control(type='text' name="map" placeholder="Please type true name of Stadium") 
+            input#exampleInputName.form-control(type='text' name="map" placeholder="Please type true name of Stadium: 'San bong da Khoa giao duc the chat Dai Hoc Hue'") 
             label.col-sm-2.col-form-label(for='inputEmail3') City
             select#inlineFormCustomSelect.custom-select.mr-sm-2(name="city")
                 option(selected='' value="%20hue%20viet%20nam") Thừa Thiên Huế
@@ -33,7 +33,6 @@ block content
                 option(value='%20ho%20chi%20minh%20viet%20nam') Tp. Hồ Chí Minh
                 option(disabled) We will update early...
 
-  
         .form-group
             .mapouter
                 .gmap_canvas

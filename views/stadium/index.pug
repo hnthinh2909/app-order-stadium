@@ -12,8 +12,10 @@ block content
                         p.card-text= "Address : " + stadium.address
                         //- Button trigger modal
                         a.btn.btn-primary(href="/stadium/order/"+stadium.id) Order
-                        button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal' style="margin-left: 15px")
+                        button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal' style="margin: 0px 15px")
                             | Check map
+                        if(user.isAdmin)
+                            a.btn.btn-primary(href="/stadium/delete/" + stadium.id) Delete
                         //- Modal
                         #exampleModal.modal.fade( tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true' style="margin-top: 100px; width: 100%")
                             .modal-dialog(role='document' style="max-width: 800px !important; height: 600px !important")
