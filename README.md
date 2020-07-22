@@ -24,5 +24,11 @@ A web app to order stadium use Node.js, Express, Mongoose with MongoDB Cloud
 - [Pug](https://www.npmjs.com/package/pug)
 - [ShortID](https://www.npmjs.com/package/shortid)
 
-## Overview's project: (will update early)
+## Overview's project: 
 - [App-Order-Stadium](https://app-order-stadium.herokuapp.com/)
+
+**Username and password of app order stadium with admin can use Create Stadium, Transaction**
+
+- Username: hnthinh2909@gmail.com
+
+- Password: 1234qwer
