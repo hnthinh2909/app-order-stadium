@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 const nodemailer = require('nodemailer');
 
 module.exports.index = async (req, res) => {
-	let stadiums = await Stadium.find({});
+	let stadiums = await Stadium.find({}).catch(err => { console.log("Error", err)});
 	res.render("stadium/index", {
 		stadiums
 	});
